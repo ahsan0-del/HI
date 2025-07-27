@@ -21,54 +21,12 @@
             border-radius: 10px;
             color: white;
         }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 5px;
-            color: #ffd700;
-        }
-        h2 {
-            color: #1a3e72;
-            border-bottom: 2px solid #1a3e72;
-            padding-bottom: 10px;
-        }
-        .presale-timer {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-            background-color: #1a3e72;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .timer-box {
-            padding: 10px;
-        }
-        .timer-box span {
-            display: block;
-            font-size: 1.8em;
-            font-weight: bold;
-        }
-        .progress-container {
-            background-color: #e0e0e0;
+        .section {
+            background-color: white;
+            padding: 20px;
             border-radius: 10px;
-            height: 20px;
-            margin: 15px 0;
-        }
-        .progress-bar {
-            background: linear-gradient(90deg, #1a3e72 0%, #4b6cb7 100%);
-            height: 100%;
-            border-radius: 10px;
-            width: 2.3%;
-        }
-        .address-box {
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 8px;
-            word-break: break-all;
-            font-family: monospace;
-            margin: 15px 0;
-            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .btn {
             background: linear-gradient(90deg, #1a3e72 0%, #4b6cb7 100%);
@@ -79,29 +37,29 @@
             cursor: pointer;
             font-weight: bold;
             margin: 5px 0;
-            display: inline-block;
         }
-        .token-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background-color: white;
+        .address-box {
+            background-color: #f0f0f0;
+            padding: 15px;
             border-radius: 8px;
-            overflow: hidden;
+            word-break: break-all;
+            font-family: monospace;
+            margin: 15px 0;
+            border: 1px solid #ddd;
         }
-        .token-table td {
-            padding: 12px;
-            border-bottom: 1px solid #eee;
+        #paymentStatus {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
         }
-        .token-table tr:last-child td {
-            border-bottom: none;
+        .success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
         }
-        .section {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
         }
     </style>
 </head>
@@ -109,43 +67,11 @@
     <header>
         <h1>British DoG</h1>
         <h2>British Dog Presale</h2>
-        <p>Welcome to the official presale of <strong>British DoG</strong> — the most proper meme coin with class, bark, and a pint of charm.</p>
     </header>
 
     <div class="section">
-        <h2>Presale Ends In:</h2>
-        <div class="presale-timer">
-            <div class="timer-box">
-                <span id="days">06</span>
-                DAYS
-            </div>
-            <div class="timer-box">
-                <span id="hours">23</span>
-                HOURS
-            </div>
-            <div class="timer-box">
-                <span id="minutes">46</span>
-                MINUTES
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Join the Presale</h2>
-        <p><strong>Progress</strong><br>
-        2.3% <strong>Raised</strong></p>
-        
-        <div class="progress-container">
-            <div class="progress-bar"></div>
-        </div>
-        
-        <p>- 2.25 BNB<br>
-        Target: 100 BNB</p>
-    </div>
-
-    <div class="section">
         <h2>Send BNB to:</h2>
-        <div class="address-box">
+        <div class="address-box" id="bnbAddress">
             0xDF21B5046cdD2EE9d7dDD2a6f8C01D5676997762
         </div>
         <button class="btn" id="copyBtn">Copy Address</button>
@@ -153,69 +79,81 @@
     </div>
 
     <div class="section">
-        <h2>Check My Contribution</h2>
-        <button class="btn">Connect Wallet</button>
-        <p>Tokens will be airdropped after the 7-day presale ends</p>
+        <h2>Pay with Wallet</h2>
+        <button class="btn" id="connectPayBtn">Connect & Pay</button>
+        <div id="paymentStatus"></div>
     </div>
 
     <div class="section">
-        <h2>Token Details</h2>
-        <table class="token-table">
-            <tr>
-                <td>Total Supply</td>
-                <td>1,000,000,000 BDOG</td>
-            </tr>
-            <tr>
-                <td>Presale Price</td>
-                <td>1 BNB = 50,000 BDOG</td>
-            </tr>
-            <tr>
-                <td>Network</td>
-                <td>Binance Smart Chain</td>
-            </tr>
-            <tr>
-                <td>Listing Date</td>
-                <td>After presale ends</td>
-            </tr>
-        </table>
+        <h2>Presale Progress</h2>
+        <p>Raised: <span id="raisedBNB">2.25</span> BNB / 100 BNB</p>
+        <p id="contributionNote">Your contribution will appear after blockchain confirmation</p>
     </div>
 
     <script>
-        // Working Countdown Timer (Days/Hours/Minutes only)
-        function updateTimer() {
-            // Set the end date (6 days from now)
-            const endDate = new Date();
-            endDate.setDate(endDate.getDate() + 6);
-            endDate.setHours(23, 59, 0, 0);
-
-            const timer = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = endDate - now;
-                
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                
-                document.getElementById("days").textContent = days.toString().padStart(2, '0');
-                document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-                document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-                
-                if (distance < 0) {
-                    clearInterval(timer);
-                    document.querySelector(".presale-timer").innerHTML = "<div>PRESALE ENDED</div>";
-                }
-            }, 1000);
-        }
-
+        // Your BSC Address
+        const bscAddress = "0xDF21B5046cdD2EE9d7dDD2a6f8C01D5676997762";
+        
         // Copy Address Function
         document.getElementById("copyBtn").addEventListener("click", function() {
-            const address = "0xDF21B5046cdD2EE9d7dDD2a6f8C01D5676997762";
-            navigator.clipboard.writeText(address);
+            navigator.clipboard.writeText(bscAddress);
             alert("Address copied to clipboard!");
         });
 
-        // Initialize Timer
-        updateTimer();
+        // Wallet Connection and Payment
+        document.getElementById("connectPayBtn").addEventListener("click", async function() {
+            const statusDiv = document.getElementById("paymentStatus");
+            statusDiv.style.display = "none";
+            
+            try {
+                // Check if MetaMask/Trust Wallet is installed
+                if (typeof window.ethereum === 'undefined') {
+                    throw new Error("Please install MetaMask or Trust Wallet first!");
+                }
+
+                // Connect Wallet
+                const accounts = await window.ethereum.request({ 
+                    method: 'eth_requestAccounts' 
+                });
+                
+                // Send BNB Transaction
+                const txHash = await window.ethereum.request({
+                    method: 'eth_sendTransaction',
+                    params: [{
+                        from: accounts[0],
+                        to: bscAddress,
+                        value: '0x' + (0.1 * 1e18).toString(16), // 0.1 BNB example
+                        gas: '0x30d40', // 200000 gas limit
+                    }]
+                });
+                
+                statusDiv.className = "success";
+                statusDiv.innerHTML = `
+                    Payment successful!<br>
+                    TX Hash: ${txHash.substring(0, 12)}...${txHash.substring(txHash.length - 6)}<br>
+                    <small>Tokens will be airdropped after presale ends</small>
+                `;
+                statusDiv.style.display = "block";
+                
+            } catch (error) {
+                statusDiv.className = "error";
+                statusDiv.textContent = "Error: " + error.message;
+                statusDiv.style.display = "block";
+            }
+        });
+
+        // Auto-update raised BNB (simplified example)
+        async function updateRaisedBNB() {
+            // In a real implementation, you would query your wallet balance here
+            // This is just a placeholder that increases randomly for demo
+            const raised = parseFloat(document.getElementById("raisedBNB").textContent);
+            document.getElementById("raisedBNB").textContent = (raised + 0.01).toFixed(2);
+        }
+        
+        setInterval(updateRaisedBNB, 30000); // Update every 30 seconds
     </script>
+
+    <!-- BSC Scan API would be needed for real-time balance tracking -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
 </body>
 </html>
