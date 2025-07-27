@@ -127,10 +127,6 @@
                 <span id="minutes">46</span>
                 MINUTES
             </div>
-            <div class="timer-box">
-                <span id="seconds">21</span>
-                SECONDS
-            </div>
         </div>
     </div>
 
@@ -150,7 +146,7 @@
     <div class="section">
         <h2>Send BNB to:</h2>
         <div class="address-box">
-            0xdf21b5046cdd2ee9d7ddd2a678c01d5676997762
+            0xDF21B5046cdD2EE9d7dDD2a6f8C01D5676997762
         </div>
         <button class="btn" id="copyBtn">Copy Address</button>
         <p>Network: Binance Smart Chain (BEP20)</p>
@@ -185,12 +181,12 @@
     </div>
 
     <script>
-        // Working Countdown Timer
+        // Working Countdown Timer (Days/Hours/Minutes only)
         function updateTimer() {
             // Set the end date (6 days from now)
             const endDate = new Date();
             endDate.setDate(endDate.getDate() + 6);
-            endDate.setHours(23, 59, 59, 0);
+            endDate.setHours(23, 59, 0, 0);
 
             const timer = setInterval(function() {
                 const now = new Date().getTime();
@@ -199,12 +195,10 @@
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
                 document.getElementById("days").textContent = days.toString().padStart(2, '0');
                 document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
                 document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-                document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
                 
                 if (distance < 0) {
                     clearInterval(timer);
@@ -215,7 +209,7 @@
 
         // Copy Address Function
         document.getElementById("copyBtn").addEventListener("click", function() {
-            const address = "0xdf21b5046cdd2ee9d7ddd2a678c01d5676997762";
+            const address = "0xDF21B5046cdD2EE9d7dDD2a6f8C01D5676997762";
             navigator.clipboard.writeText(address);
             alert("Address copied to clipboard!");
         });
