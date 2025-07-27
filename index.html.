@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>British DoG - Presale</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #1a3e72;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+        h2 {
+            color: #1a3e72;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .presale-timer {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            background-color: #1a3e72;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .presale-timer div {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .progress-container {
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            height: 20px;
+            margin: 15px 0;
+        }
+        .progress-bar {
+            background-color: #1a3e72;
+            height: 100%;
+            border-radius: 10px;
+            width: 2.3%;
+        }
+        .address-box {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-family: monospace;
+            margin: 15px 0;
+        }
+        .btn {
+            background-color: #1a3e72;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .social-links {
+            list-style-type: none;
+            padding: 0;
+        }
+        .social-links li {
+            margin: 10px 0;
+        }
+        .social-links a {
+            color: #1a3e72;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .token-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .token-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .features {
+            margin: 20px 0;
+        }
+        .feature {
+            margin-bottom: 15px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>British DoG</h1>
+        <h2>British Dog Presale</h2>
+        <p>Welcome to the official presale of <strong>British DoG</strong> — the most proper meme coin with class, bark, and a pint of charm.</p>
+    </header>
+
+    <section id="timer">
+        <h2>Presale Ends In:</h2>
+        <div class="presale-timer">
+            <div>6 DAYS</div>
+            <div>23 HOURS</div>
+            <div>46 MINUTES</div>
+            <div>21 SECONDS</div>
+        </div>
+    </section>
+
+    <section id="presale">
+        <h2>Join the Presale</h2>
+        <p><strong>Progress</strong><br>
+        2.3% <strong>Raised</strong></p>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <p>- 2.25 BNB<br>
+        Target: 100 BNB</p>
+    </section>
+
+    <section id="send-bnb">
+        <h2>Send BNB to:</h2>
+        <div class="address-box">
+            0xdf21b5046cdd2ee9d7dd d2a6f8c01d5676997762
+        </div>
+        <button class="btn">Copy Address</button>
+        <p>Network: Binance Smart Chain (BEP20)</p>
+    </section>
+
+    <section id="contribution">
+        <h2>Check My Contribution</h2>
+        <button class="btn">Connect Wallet</button>
+        <p>Tokens will be airdropped after the 7-day presale ends</p>
+    </section>
+
+    <section id="token-details">
+        <h2>Token Details</h2>
+        <table class="token-table">
+            <tr>
+                <td>Total Supply</td>
+                <td>1,000,000,000 BDOG</td>
+            </tr>
+            <tr>
+                <td>Presale Price</td>
+                <td>1 BNB = 50,000 BDOG</td>
+            </tr>
+            <tr>
+                <td>Network</td>
+                <td>Binance Smart Chain</td>
+            </tr>
+            <tr>
+                <td>Listing Date</td>
+                <td>After presale ends</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="why" class="features">
+        <h2>Why British DoG?</h2>
+        <div class="feature">
+            <h3>Proper British Class</h3>
+            <p>The most distinguished meme coin with royal heritage and impeccable manners.</p>
+        </div>
+        <div class="feature">
+            <h3>Strong Community</h3>
+            <p>Join thousands of holders in our telegram community for updates and discussions.</p>
+        </div>
+        <div class="feature">
+            <h3>Secure & Audited</h3>
+            <p>Contract audited by leading security firms with locked liquidity for safety.</p>
+        </div>
+    </section>
+
+    <section id="community">
+        <h2>Join Our Community</h2>
+        <ul class="social-links">
+            <li><a href="#">Telegram</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Discord</a></li>
+            <li><a href="#">YouTube</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>British DoG is a community-driven meme token. This is not financial advice. Please do your own research before participating in any cryptocurrency presale.</p>
+        <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // Simple countdown timer
+        function updateTimer() {
+            // Set the date we're counting down to (6 days from now)
+            const countDownDate = new Date();
+            countDownDate.setDate(countDownDate.getDate() + 6);
+            
+            // Update the countdown every 1 second
+            const x = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000;
+                
+                document.querySelector(".presale-timer").innerHTML = `
+                    <div>${days} DAYS</div>
+                    <div>${hours} HOURS</div>
+                    <div>${minutes} MINUTES</div>
+                    <div>${seconds} SECONDS</div>
+                `;
+                
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.querySelector(".presale-timer").innerHTML = "PRESALE ENDED";
+                }
+            }, 1000);
+        }
+        
+        // Copy address button
+        document.querySelector(".btn").addEventListener("click", function() {
+            const address = "0xdf21b5046cdd2ee9d7dd d2a6f8c01d5676997762";
+            navigator.clipboard.writeText(address.replace(/\s/g, ''));
+            alert("Address copied to clipboard!");
+        });
+        
+        // Initialize timer
+        updateTimer();
+    </script>
+</body>
+  </html>
